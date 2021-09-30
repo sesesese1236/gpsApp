@@ -15,6 +15,7 @@
 		D515A93526F31FEE00A91D0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D515A93326F31FEE00A91D0D /* LaunchScreen.storyboard */; };
 		D515A94026F31FEF00A91D0D /* gpsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D515A93F26F31FEF00A91D0D /* gpsAppTests.swift */; };
 		D515A94B26F31FEF00A91D0D /* gpsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D515A94A26F31FEF00A91D0D /* gpsAppUITests.swift */; };
+		D5DEE5352705700900D59636 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DEE5342705700900D59636 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D515A94626F31FEF00A91D0D /* gpsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gpsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D515A94A26F31FEF00A91D0D /* gpsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gpsAppUITests.swift; sourceTree = "<group>"; };
 		D515A94C26F31FEF00A91D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5DEE5342705700900D59636 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5DEE5352705700900D59636 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 				D515A93E26F31FEF00A91D0D /* gpsAppTests */,
 				D515A94926F31FEF00A91D0D /* gpsAppUITests */,
 				D515A92626F31FD700A91D0D /* Products */,
+				D5DEE5332705700800D59636 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +130,14 @@
 				D515A94C26F31FEF00A91D0D /* Info.plist */,
 			);
 			path = gpsAppUITests;
+			sourceTree = "<group>";
+		};
+		D5DEE5332705700800D59636 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5DEE5342705700900D59636 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
