@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gpsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="gpsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,10 +44,11 @@
                                 <rect key="frame" x="20" y="259" width="374" height="378"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mak-S8-hFX">
-                                <rect key="frame" x="36" y="758" width="30" height="30"/>
-                                <state key="normal" title="Get"/>
+                                <rect key="frame" x="36" y="758" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
                                 <connections>
-                                    <action selector="clickGet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u8B-J8-Z6D"/>
+                                    <action selector="clickSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clO-Pk-anR"/>
+                                    <segue destination="UPf-Ko-O2H" kind="show" id="vfM-aG-XK5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRS-5q-IEA">
@@ -88,6 +89,7 @@
                             <constraint firstItem="6Bc-Tv-v0e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yGl-id-04e"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hZG-hH-xUu"/>
                     <connections>
                         <outlet property="btnStart" destination="wRS-5q-IEA" id="lnA-UE-Bjh"/>
                         <outlet property="btnStop" destination="mKw-Tg-tPd" id="m3X-cR-oH5"/>
@@ -99,6 +101,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+        </scene>
+        <!--Search Controller-->
+        <scene sceneID="7Eo-0L-ELJ">
+            <objects>
+                <viewController storyboardIdentifier="SearchController" modalPresentationStyle="fullScreen" id="UPf-Ko-O2H" customClass="SearchController" customModule="gpsApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wgD-OM-Ifh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="haR-vL-KMV">
+                                <rect key="frame" x="0.0" y="237" width="414" height="162"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0I-qP-kfm">
+                                <rect key="frame" x="2" y="208" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xbR-hx-Afn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDp-fo-e6X">
+                                <rect key="frame" x="0.0" y="437.5" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rT9-6F-pys">
+                                <rect key="frame" x="183" y="756" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchTime:" destination="UPf-Ko-O2H" eventType="touchUpInside" id="LUs-k3-zAV"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="vgS-CG-grN"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="QBQ-A5-7Zx">
+                                <rect key="frame" x="0.0" y="467" width="414" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="P5w-a8-PTB"/>
+                                </constraints>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lP0-Wq-Bvd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="haR-vL-KMV" firstAttribute="leading" secondItem="eDp-fo-e6X" secondAttribute="leading" id="6Ik-a1-rG4"/>
+                            <constraint firstItem="eDp-fo-e6X" firstAttribute="top" secondItem="haR-vL-KMV" secondAttribute="bottom" constant="38.5" id="Bld-yX-vgg"/>
+                            <constraint firstItem="haR-vL-KMV" firstAttribute="centerX" secondItem="wgD-OM-Ifh" secondAttribute="centerX" id="EAu-M9-G75"/>
+                            <constraint firstItem="L0I-qP-kfm" firstAttribute="leading" secondItem="lP0-Wq-Bvd" secondAttribute="leading" constant="2" id="L2M-9R-ADg"/>
+                            <constraint firstItem="haR-vL-KMV" firstAttribute="trailing" secondItem="QBQ-A5-7Zx" secondAttribute="trailing" id="VMS-3L-pVy"/>
+                            <constraint firstItem="eDp-fo-e6X" firstAttribute="centerY" secondItem="wgD-OM-Ifh" secondAttribute="centerY" id="m7C-F5-uel"/>
+                            <constraint firstItem="QBQ-A5-7Zx" firstAttribute="centerX" secondItem="rT9-6F-pys" secondAttribute="centerX" id="mmW-qB-W1I"/>
+                            <constraint firstItem="haR-vL-KMV" firstAttribute="top" secondItem="L0I-qP-kfm" secondAttribute="bottom" constant="8" id="osB-QF-iqx"/>
+                            <constraint firstItem="haR-vL-KMV" firstAttribute="leading" secondItem="lP0-Wq-Bvd" secondAttribute="leading" id="oyO-Mc-nuI"/>
+                            <constraint firstItem="lP0-Wq-Bvd" firstAttribute="bottom" secondItem="rT9-6F-pys" secondAttribute="bottom" constant="76" id="pJk-dz-lpn"/>
+                            <constraint firstItem="QBQ-A5-7Zx" firstAttribute="top" secondItem="eDp-fo-e6X" secondAttribute="bottom" constant="8.5" id="rkf-iv-8eH"/>
+                            <constraint firstItem="eDp-fo-e6X" firstAttribute="leading" secondItem="QBQ-A5-7Zx" secondAttribute="leading" id="sE2-9J-VUM"/>
+                            <constraint firstItem="L0I-qP-kfm" firstAttribute="top" secondItem="lP0-Wq-Bvd" secondAttribute="top" constant="164" id="sVO-SX-3Ee"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7z2-GO-Rxm"/>
+                    <connections>
+                        <outlet property="startDatePicker" destination="haR-vL-KMV" id="NFb-Zt-PZG"/>
+                        <outlet property="stopDatePicker" destination="QBQ-A5-7Zx" id="hkX-co-gps"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J10-b0-os5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="92"/>
         </scene>
     </scenes>
     <resources>

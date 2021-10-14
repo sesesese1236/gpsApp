@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479CDC1B2717F44E00428BFE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CDC1A2717F44E00428BFE /* SearchController.swift */; };
 		47CB2B69270EB7370062D4E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2B68270EB7370062D4E0 /* MapKit.framework */; };
 		47CB2B79270ED2C00062D4E0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2B78270ED2C00062D4E0 /* RealmSwift.framework */; };
 		72A927B9DF2E914BFF282C50 /* Pods_gpsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA4EA9A8630D37309C6265 /* Pods_gpsAppTests.framework */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		20FD8DA358D5964C376BD18D /* Pods-gpsApp-gpsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gpsApp-gpsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-gpsApp-gpsAppUITests/Pods-gpsApp-gpsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		479CDC1A2717F44E00428BFE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		47CB2B68270EB7370062D4E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		47CB2B78270ED2C00062D4E0 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D47EF5FBD53B7FCF567234 /* Pods-gpsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gpsApp.debug.xcconfig"; path = "Target Support Files/Pods-gpsApp/Pods-gpsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				D515A92A26F31FD700A91D0D /* SceneDelegate.swift */,
 				D515A92C26F31FD700A91D0D /* ViewController.swift */,
 				D515A92E26F31FD700A91D0D /* Main.storyboard */,
+				479CDC1A2717F44E00428BFE /* SearchController.swift */,
 				D515A93126F31FEE00A91D0D /* Assets.xcassets */,
 				D515A93326F31FEE00A91D0D /* LaunchScreen.storyboard */,
 				D515A93626F31FEE00A91D0D /* Info.plist */,
@@ -421,6 +424,7 @@
 				D515A92D26F31FD700A91D0D /* ViewController.swift in Sources */,
 				D515A92926F31FD700A91D0D /* AppDelegate.swift in Sources */,
 				D515A92B26F31FD700A91D0D /* SceneDelegate.swift in Sources */,
+				479CDC1B2717F44E00428BFE /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
