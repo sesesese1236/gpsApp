@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="gpsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="gpsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,6 +112,9 @@
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="haR-vL-KMV">
                                 <rect key="frame" x="0.0" y="237" width="414" height="162"/>
+                                <connections>
+                                    <action selector="changeStartDatePicker:" destination="UPf-Ko-O2H" eventType="valueChanged" id="kEE-Mm-FCc"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0I-qP-kfm">
                                 <rect key="frame" x="2" y="208" width="80" height="21"/>
@@ -133,7 +136,6 @@
                                 <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="searchTime:" destination="UPf-Ko-O2H" eventType="touchUpInside" id="LUs-k3-zAV"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="vgS-CG-grN"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="QBQ-A5-7Zx">
@@ -141,6 +143,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="P5w-a8-PTB"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeStopDatePicker:" destination="UPf-Ko-O2H" eventType="valueChanged" id="WCg-cA-MFI"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lP0-Wq-Bvd"/>

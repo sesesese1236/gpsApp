@@ -30,7 +30,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     let status = CLLocationManager.authorizationStatus()
     var locationManager : CLLocationManager!
     @IBOutlet weak var mapView: MKMapView!
-    
+    public var startDate:Date? = nil
+    public var stopDate:Date? = nil
     let userCalendar = Calendar.current
     
     
@@ -54,6 +55,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         mapView.mapType = MKMapType.hybrid
         mapUpdate()
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        if(startDate != nil && stopDate != nil){
+            annotation()
+        }
     }
 
 
@@ -124,6 +131,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         try! realm.write {
             realm.add(db)
         }
+        
+        
         labelLat.text = String(latitude!)
         labelLon.text = String(longtitude!)
         
@@ -136,6 +145,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             print(db.longtitude)
             print()
             print()
+        }
+    }
+    func annotation(){
+        let realm = try! Realm()
+        print(startDate!)
+        print(stopDate!)
+        let gpsList:Results<YourExistence> = realm.objects(YourExistence.self).filter("time <= %@ AND time >= %@", stopDate! ,startDate!)
+        
+        let dateformatter = DateFormatter()
+//        print("test")
+        for loc in gpsList{
+            let annonation:MKPointAnnotation = MKPointAnnotation()
+            annonation.coordinate = CLLocationCoordinate2DMake(loc.latitude, loc.longtitude)
+            annonation.title = "You"
+            annonation.subtitle = dateformatter.string(from:loc.time!)
+            mapView.addAnnotation(annonation)
+//            print("test2")
         }
     }
 }
