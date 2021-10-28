@@ -20,7 +20,7 @@ class YourExistence : Object{
         return "id"
     }
 }
-class ViewController: UIViewController, CLLocationManagerDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
 
     
     @IBOutlet weak var labelLat: UILabel!
@@ -53,6 +53,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         }
         btnStop.isEnabled = false
         
+        mapView.delegate = self
         mapView.mapType = MKMapType.hybrid
         mapUpdate()
         
@@ -61,6 +62,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         if(startDate != nil && stopDate != nil){
             annotation()
         }
+        let testcords:[CLLocationCoordinate2D] = [
+            CLLocationCoordinate2D(latitude: 35.6804, longitude: 139.7690),
+            CLLocationCoordinate2D(latitude: 36.2380, longitude: 137.9720),
+            CLLocationCoordinate2D(latitude: 34.6937, longitude: 135.5023)]
+        let polyLine = MKPolyline(coordinates: testcords, count: testcords.count)
+        mapView.addOverlay(polyLine)
     }
 
 
@@ -136,16 +143,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         labelLat.text = String(latitude!)
         labelLon.text = String(longtitude!)
         
-        let dbList: Results<YourExistence> = realm.objects(YourExistence.self)
+//        let dbList: Results<YourExistence> = realm.objects(YourExistence.self)
         
-        for db in dbList{
-            print(db.id)
-            print(db.time!)
-            print(db.latitude)
-            print(db.longtitude)
-            print()
-            print()
-        }
+//        for db in dbList{
+//            print(db.id)
+//            print(db.time!)
+//            print(db.latitude)
+//            print(db.longtitude)
+//            print()
+//            print()
+//        }
     }
     func annotation(){
         let realm = try! Realm()
@@ -154,6 +161,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let gpsList:Results<YourExistence> = realm.objects(YourExistence.self).filter("time <= %@ AND time >= %@", stopDate! ,startDate!)
         
         let dateformatter = DateFormatter()
+        var cords:[CLLocationCoordinate2D] = []
 //        print("test")
         for loc in gpsList{
             let annonation:MKPointAnnotation = MKPointAnnotation()
@@ -161,8 +169,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             annonation.title = "You"
             annonation.subtitle = dateformatter.string(from:loc.time!)
             mapView.addAnnotation(annonation)
+            cords+=[CLLocationCoordinate2D(latitude:loc.latitude , longitude:loc.longtitude)]
 //            print("test2")
         }
+        let polyLine = MKPolyline(coordinates: cords, count: cords.count)
+        mapView.addOverlay(polyLine)
+    }
+    
+    func mapView(_ mapView:MKMapView,rendererFor overlay: MKOverlay)-> MKOverlayRenderer{
+        
+        if let polyline = overlay as? MKPolyline{
+            
+            let polylineRenderer = MKPolylineRenderer(polyline: polyline)
+            polylineRenderer.strokeColor = .blue
+            polylineRenderer.lineWidth = 2.0
+            
+            return polylineRenderer
+        }
+        return MKOverlayRenderer()
     }
 }
 
